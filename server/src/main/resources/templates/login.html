@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>ATM Project Login Page</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+	<form th:action="@{/login}" method="POST" class="form-signin">
+		<h3 class="form-signin-heading" th:text="Authorization"></h3>
+		<br/>
+
+		<input type="text" id="email" name="email" th:placeholder="Email"
+		       class="form-control"/> <br/>
+		<input type="password" th:placeholder="Password"
+		       id="password" name="password" class="form-control"/> <br/>
+
+		<div align="center" th:if="${param.error}">
+			<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+		</div>
+
+		<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
+		        th:text="Login"></button>
+	</form>
+</div>
+<div>
+	<br/>
+	Описание: <br/>
+	<table class="table table-sm">
+		<thead>
+		<tr class="headings">
+			<th class="column-title">Email</th>
+			<th class="column-title">Password</th>
+			<th class="column-title">Roles</th>
+			<th class="column-title">Discription</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>mail1@mail</td>
+			<td>1111</td>
+			<td>ADMIN,USER</td>
+			<td>ADMIN видит все счета всех клиентов</td>
+		</tr>
+		<tr>
+			<td>mail2@mail</td>
+			<td>2222</td>
+			<td>USER</td>
+			<td>USER видит только свои счета</td>
+		</tr>
+		<tr>
+			<td>mail3@mail</td>
+			<td>3333</td>
+			<td>USER</td>
+			<td>USER видит только свои счета</td>
+		</tr>
+		<tr>
+			<td>mail4@mail</td>
+			<td>4444</td>
+			<td>USER</td>
+			<td>USER видит только свои счета</td>
+		</tr>
+		</tbody>
+	</table>
+
+</div>
+</body>
+</html>
